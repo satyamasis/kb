@@ -1,0 +1,54 @@
+Postgres Knowledge base:
+
+1. Partitioning:
+
+	Candidates:
+		- Anything over 1GB/10m rows
+		- partition by active/passive
+
+
+	Solutions:
+		
+
+
+
+2. Connection Management:
+	Candidate:
+		- If application needs > 500 database connections, you need better pooling
+
+
+	
+
+
+	Sollutions: 
+		-New connections are expensive; Therefore, use persistent connections or connection pooling software like pgBouncer/pgPool. 
+		 It'll eastablishing hundreds of new connections in a few seconds.
+		-
+		
+
+
+
+
+
+
+
+
+
+
+
+Syntax Sugar:
+1. IN and ANY clause. Index not used with =ANY() but used with IN clause. ANY construct is far more versatile, as it can be combined with various operators, not just =. Example for LIKE:
+	SELECT 'foo' LIKE ANY('{FOO,bar,%oo%}');
+
+  Second Form 
+	WHERE (a,b) = ANY(VALUES (1,1),(1,2));
+		OR
+	WHERE (a,b) IN (VALUES (1,1),(1,2));
+			
+2. 
+
+
+
+Exaplain Analyze: You can refere- https://wiki.postgresql.org/images/4/45/Explaining_EXPLAIN.pdf
+
+

@@ -1,0 +1,44 @@
+wal_buffers: value that	controls how much memory to use for buffering write-ahead log data, you can do that now with a line like the following in the postgresql.conf.
+	Command:  show wal_buffers
+		  SELECT name,setting,unit,current_setting(name) FROM pg_settings WHERE name='wal_buffers';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Debug: 
+1. Faild to start then look into it: http://www.postgresql.org/docs/current/static/server-start.html
+
+
