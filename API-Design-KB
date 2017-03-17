@@ -1,0 +1,11 @@
+API design knowledge base:
+
+* In 2010 around 74% of public network API we HTTP REST API.
+
+
+
+
+REST API[Referenced from Google]:
+A REST API is modeled as collections of individually-addressable resources (the nouns of the API). Resources are referenced with their resource names and manipulated via a small set of methods(also known as verb).
+
+
