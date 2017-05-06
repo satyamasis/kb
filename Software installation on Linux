@@ -1,0 +1,62 @@
+Software installation on Linux.
+
+
+1. VSFTPD for FTP server
+============================================================================================
+a) Installation on ubuntu
+
+sudo apt-get update  #Update ubuntu directory
+
+sudo apt-get -y install vsftpd #install vsftpd and any required packages
+
+b) Configuration
+
+sudo vi /etc/vsftpd.conf
+
+Update following configuration:
+  anonymous_enable=NO #unidentified users to access files via FTP; change the anonymous_enable setting to NO.
+  local_enable=YES #Allow local uses to login by changing the local_enable setting to YES.
+  write_enable=YES #local user to be able to write to a directory, then change the write_enable setting to YES.
+  chroot_local_user=YES  #Local users will be ‘chroot jailed’ and they will be denied access to any other part of the server;
+
+
+Save all changed configuration
+
+sudo service vsftpd restart
+
+
+c) Configuration Users
+
+Create User directory
+mkdir /home/<FTP-user>
+mkdir /home/<FTP-user>/<HOME-FILE>
+
+Create User
+
+sudo adduser ftpuser
+sudo passwd ftpuser
+	UNIX password: ftpuser
+        Re-Enter Password: ftpuser
+
+sudo chmod a-w -R /home/ftpuser/
+
+Give ownership to user
+sudo chown ftpuser:ftpuser /home/ftpuser/files/
+
+
+
+d) Debugging
+
+ftp -p localhost
+
+
+Error: ubuntu vsftpd 530 Login incorrect.
+Change : /etc/vsftpd.conf
+
+pam_service_name=ftp
+
+sudo service vsftpd restart
+
+
+=======================================================================================
+

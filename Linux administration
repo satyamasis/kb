@@ -1,0 +1,83 @@
+Linux administration
+================================================================
+User administration
+
+1.To add a new user account, you can run either of the following two commands as root.
+
+# adduser [new_account]
+# useradd [new_account]
+
+
+   * His/her home directory is created (/home/username by default).
+   * Hidden files
+	.bash_logout
+	.bash_profile
+	.bashrc
+
+2. Edit user information after adding
+
+#usermod [option] [username]
+ 
+usermod --expirydate 2017-01-30 satyam #Account will expire on 2017-01-30.
+
+usermod --append --groups root,users user-name # Adding user to group root and users.
+
+groups user-name # Displaying the groups an user is a member of
+
+usermod --lock user-name #Disabling account by locking password
+
+usermod --unlock user-name #Enabling user-account
+
+
+
+3. Delete user
+
+deluser --remove-home user-name  #User user and his home directory.
+
+ --remove-home             remove the users home directory and mail spool
+ --remove-all-files        remove all files owned by user
+
+
+4. Creating a new group for read and write access to files that need to be accessed by several users.
+
+groupadd common_group # Add a new group
+chown :common_group common.txt # Change the group owner of common.txt to common_group
+usermod -aG common_group user1 # Add user1 to common_group
+usermod -aG common_group user2 # Add user2 to common_group
+usermod -aG common_group user3 # Add user3 to common_group
+
+Delete group
+
+groupdel common_group #Delete group
+
+
+
+
+5 Advance File/Directory attribute
+
+When the “sticky bit” is set on files, Linux just ignores it, whereas for directories it has the effect of preventing users from deleting or even renaming the files it contains unless the user owns the directory, the file, or is root.
+
+chmod o+t [directory]
+chmod 1555 [directory]
+
+
+There are other attributes that enable further limits on the operations that are allowed on files. For example, prevent the file from being renamed, moved, deleted, or even modified. 
+
+chattr +i file1 # file1 become immutable.
+chattr +a file2 # enter append-only mode (can only be open in append mode for writing).
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------
+Manage Process
+
+1. pgrep -u satyam #Find all running process of user-account.
+
+2. ps -f --pid $(pgrep -u satyam) #Full detail of each-individual running process.
+
+3.  killall -9 -u satyam #Kill all running process of particular user.
+
+4. 
+
+
