@@ -18,7 +18,7 @@ User administration
 
 #usermod [option] [username]
  
-usermod --expirydate 2017-01-30 satyam #Account will expire on 2017-01-30.
+usermod --expirydate 2017-01-30 <user-name> #Account will expire on 2017-01-30.
 
 usermod --append --groups root,users user-name # Adding user to group root and users.
 
@@ -40,15 +40,15 @@ deluser --remove-home user-name  #User user and his home directory.
 
 4. Creating a new group for read and write access to files that need to be accessed by several users.
 
-groupadd common_group # Add a new group
-chown :common_group common.txt # Change the group owner of common.txt to common_group
-usermod -aG common_group user1 # Add user1 to common_group
-usermod -aG common_group user2 # Add user2 to common_group
-usermod -aG common_group user3 # Add user3 to common_group
+groupadd <groupname> # Add a new group
+chown :<groupname> common.txt # Change the group owner of common.txt to <groupname>
+usermod -aG <groupname> user1 # Add user1 to <groupname>
+usermod -aG <groupname> user2 # Add user2 to <groupname>
+usermod -aG <groupname> user3 # Add user3 to <groupname>
 
 Delete group
 
-groupdel common_group #Delete group
+groupdel <groupname> #Delete group
 
 
 
@@ -72,11 +72,11 @@ chattr +a file2 # enter append-only mode (can only be open in append mode for wr
 ---------------------------------------------------------------------------------------------------------------------------
 Manage Process
 
-1. pgrep -u satyam #Find all running process of user-account.
+1. pgrep -u <user-name> #Find all running process of user-account.
 
-2. ps -f --pid $(pgrep -u satyam) #Full detail of each-individual running process.
+2. ps -f --pid $(pgrep -u <user-name>) #Full detail of each-individual running process.
 
-3.  killall -9 -u satyam #Kill all running process of particular user.
+3.  killall -9 -u <user-name> #Kill all running process of particular user.
 
 4. 
 
