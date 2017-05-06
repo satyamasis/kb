@@ -50,7 +50,12 @@ Delete group
 
 groupdel <groupname> #Delete group
 
+Delete from group
+     sudo groups <user-name> #Group Listing of user-name
+     sudo id -nG <user-name> #ID of groups
+	  Output:<user-group1> <user-group2> <user-group3>
 
+     sudo usermod -G <user-group1>,<user-group-3> <user-name> #Now user remove from user-group2
 
 
 5 Advance File/Directory attribute
